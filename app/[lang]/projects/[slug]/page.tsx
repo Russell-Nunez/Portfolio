@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { ProjectCover } from "@/components/project-cover";
 import { projects as all } from "@/content/site";
+import { asset } from "@/lib/asset";
 import { getContent, href, isLang, langs } from "@/lib/i18n";
 
 const projects = all.filter((p) => p.image);
@@ -112,8 +113,8 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
         <div className="mt-12">
           {project.video ? (
             <video
-              src={project.video}
-              poster={project.image ?? undefined}
+              src={asset(project.video)}
+              poster={project.image ? asset(project.image) : undefined}
               controls
               muted
               playsInline
@@ -132,13 +133,13 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
               <h2 id="try-it" className="font-display text-3xl font-semibold tracking-tight">
                 {c.ui.tryIt}
               </h2>
-              <a href={project.demo} className="btn" target="_blank" rel="noopener noreferrer">
+              <a href={asset(project.demo)} className="btn" target="_blank" rel="noopener noreferrer">
                 {c.ui.demo}
                 <ArrowUpRight size={18} aria-hidden />
               </a>
             </div>
             <iframe
-              src={project.demo}
+              src={asset(project.demo)}
               title={text.title}
               loading="lazy"
               allow="fullscreen"
@@ -158,7 +159,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
                 return (
                   <li key={src} className={phone ? undefined : "sm:last:odd:col-span-2"}>
                     <Image
-                      src={src}
+                      src={asset(src)}
                       alt={m?.title ?? ""}
                       width={phone ? 400 : 1280}
                       height={phone ? 860 : 764}

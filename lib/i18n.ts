@@ -12,6 +12,5 @@ export const isLang = (value: string): value is Lang => (langs as readonly strin
 export const getContent = (lang: Lang) => dictionaries[lang];
 
 export const href = (lang: Lang, path = "/") => {
-  if (lang === "pt") return path;
   return path === "/" ? `/${lang}` : `/${lang}${path}`;
 };

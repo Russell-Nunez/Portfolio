@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { asset } from "@/lib/asset";
 import type { ProjectText } from "@/content/types";
 
 export function ProjectCover({ image, alt, metric }: { image: string | null; alt: string; metric: ProjectText["metric"] }) {
   if (image) {
     return (
       <Image
-        src={image}
+        src={asset(image)}
         alt={alt}
         width={1280}
         height={800}

@@ -1,12 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async rewrites() {
-    return [
-      { source: "/", destination: "/pt" },
-      { source: "/projects/:slug", destination: "/pt/projects/:slug" },
-    ];
-  },
+  output: "export",
+  trailingSlash: true,
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+  images: { unoptimized: true },
   turbopack: {
     rules: {
       "*.css": {

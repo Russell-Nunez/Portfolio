@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { projects, site } from "@/content/site";
 import { href, langs } from "@/lib/i18n";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = ["/", ...projects.filter((p) => p.image).map((p) => `/projects/${p.slug}`)];
   return paths.flatMap((path) =>

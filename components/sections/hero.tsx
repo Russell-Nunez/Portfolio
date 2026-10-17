@@ -2,6 +2,8 @@ import { DownloadSimple } from "@phosphor-icons/react/dist/ssr";
 import { site } from "@/content/site";
 import type { Content, Lang } from "@/content/types";
 import { DotSphere } from "@/components/dot-sphere";
+import { asset } from "@/lib/asset";
+import { href } from "@/lib/i18n";
 import { socials } from "@/components/ui/icons";
 
 export function Hero({ lang, c }: { lang: Lang; c: Content }) {
@@ -25,10 +27,10 @@ export function Hero({ lang, c }: { lang: Lang; c: Content }) {
         </p>
 
         <div className="rise mt-9 flex flex-wrap items-center gap-3" style={{ "--i": 3 } as React.CSSProperties}>
-          <a href={`${lang === "pt" ? "" : `/${lang}`}#contact`} className="btn btn-primary">
+          <a href={`${asset(href(lang))}/#contact`} className="btn btn-primary">
             {c.hero.contact}
           </a>
-          <a href={site.resume[lang]} download className="btn">
+          <a href={asset(site.resume[lang])} download className="btn">
             <DownloadSimple size={18} aria-hidden />
             {c.hero.resume}
           </a>
