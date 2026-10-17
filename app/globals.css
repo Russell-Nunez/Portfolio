@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --bg: #f5f6f7;
+  --surface: #ebedf0;
+  --fg: #0f1114;
+  --muted: #5a6068;
+  --line: #dcdfe3;
+  --accent: #0a7a55;
+  --accent-fg: #f5f6f7;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b0c0e;
+  --surface: #121417;
+  --fg: #eceef0;
+  --muted: #9ba1a9;
+  --line: #212428;
+  --accent: #4be0a0;
+  --accent-fg: #06140e;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-code), ui-monospace, monospace;
+  --radius-ui: 12px;
+}
+
+html {
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+a,
+button {
+  touch-action: manipulation;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 30%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.75rem;
+  padding-inline: 1.25rem;
+  border-radius: var(--radius-ui);
+  border: 1px solid var(--line);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    transform 160ms var(--ease-out),
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-color: var(--accent);
+}
+.btn-icon {
+  width: 2.75rem;
+  padding: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    border-color: var(--muted);
+  }
+  .btn-primary:hover {
+    background: color-mix(in oklab, var(--accent) 88%, var(--fg));
+    border-color: transparent;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+.rise {
+  animation: rise 700ms var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation-name: fade;
+  }
+}
+
+.dots {
+  background-image: radial-gradient(color-mix(in oklab, var(--fg) 14%, transparent) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 60;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-radius: var(--radius-ui);
+}
+.skip:focus {
+  top: 0.75rem;
+}
