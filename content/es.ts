@@ -182,7 +182,7 @@ export const es: Content = {
       {
         company: "Cortex IA",
         role: "Desarrollador Full Stack Senior",
-        period: "Mar 2024 - May 2026",
+        period: "Mar 2025 - Dic 2025",
         bullets: [
           "Chatbot de soporte con IA: -40% de tickets.",
           "ERP con agentes de IA: -60% de costo de soporte.",
