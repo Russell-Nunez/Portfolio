@@ -180,6 +180,15 @@ export const es: Content = {
         ],
       },
       {
+        company: "Clarifiquei",
+        role: "Ingeniero de Software II",
+        period: "May 2025 - Dic 2025",
+        bullets: [
+          "Web y mobile con React, React Native y Node.",
+          "CI/CD reducido de 30 a 10 minutos, con Azure y Docker.",
+        ],
+      },
+      {
         company: "Cortex IA",
         role: "Desarrollador Full Stack Senior",
         period: "Mar 2025 - Dic 2025",
@@ -187,15 +196,6 @@ export const es: Content = {
           "Chatbot de soporte con IA: -40% de tickets.",
           "ERP con agentes de IA: -60% de costo de soporte.",
           "IA de precios: +15% de facturación en el piloto. APIs en Node.js y TypeScript, PostgreSQL, MongoDB y AWS.",
-        ],
-      },
-      {
-        company: "Clarifiquei",
-        role: "Ingeniero de Software II",
-        period: "May 2025 - Dic 2025",
-        bullets: [
-          "Web y mobile con React, React Native y Node.",
-          "CI/CD reducido de 30 a 10 minutos, con Azure y Docker.",
         ],
       },
       {
